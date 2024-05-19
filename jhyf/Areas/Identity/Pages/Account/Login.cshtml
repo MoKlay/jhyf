@@ -1,0 +1,33 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Авторизация";
+}
+
+<form id="account" method="post">
+    <h1>@ViewData["Title"]</h1>
+    <div asp-validation-summary="ModelOnly" role="alert"></div>
+    <div>
+        <input asp-for="Input.Email" autocomplete="off" aria-required="true" placeholder="Почта" />
+        <span asp-validation-for="Input.Email"></span>
+    </div>
+    <div>
+        <input asp-for="Input.Password" autocomplete="off" aria-required="true" placeholder="Пароль"/>
+        <span asp-validation-for="Input.Password"></span>
+    </div>
+    <div class="check">
+        <label asp-for="Input.RememberMe">
+        <input class="form-check-input" asp-for="Input.RememberMe" />
+        @Html.DisplayNameFor(m => m.Input.RememberMe)
+        </label>
+    </div>
+    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Войти</button>
+    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Зарегистрируйтесь<br/> как новый пользователь</a>
+</form>
+
+
+<link rel="stylesheet" href="~/css/register.css">
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

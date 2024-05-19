@@ -1,0 +1,80 @@
+﻿@page
+@model jhyf.Pages.NeWs.IndexModel
+
+@{
+    ViewData["Title"] = "Новости";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@if (User.IsInRole("Admin"))
+{
+        <a asp-page="Create" id="add">+</a>
+}
+<div class="con">
+
+    <div class="row" >
+        <p>15.09.2022</p>
+        <a href="https://edu.gov.ru/press/5775/okolo-14-milliona-studentov-kolledzhey-napishut-vserossiyskie-proverochnye-raboty?ysclid=lt5sddb3ha156148869"><img src="~/img/впр спо.png"/></a>
+        <div>
+                <h4>Всероссийские проверочные работы напишут порядка 1,4 млн студентов колледжей</h4>
+                <p>15 сентября начинается проведение всероссийских проверочных работ для обучающихся организаций среднего профессионального образования (ВПР СПО).</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <p>30.06.2023</p>
+        <a href="https://edu.gov.ru/press/7231/federalnye-osnovnye-obrazovatelnye-programmy-po-vsem-predmetam-budut-vvedeny-v-nachale-uchebnogo-goda/?ysclid=lt5tc5gcb2557664691"><img src="~/img/фооп.png"/></a>
+        <div>
+            <h4>Федеральные основные образовательные программы по всем предметам введены в начале учебного года 2023-2024</h4>
+            <p>Федеральные основные образовательные программы (ФООП) по всем школьным предметам начали действовать с 1 сентября 2023 года.</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <p>24.11.2023</p>
+        <a href="https://mathcenter.kpfu.ru/tpost/i5tkp8tpt1-pravitelstvo-planiruet-uchredit-premiyu"><img src="~/img/новости матем 2.png" width="250" height="200" /></a>
+        <div>
+            <h4>Правительство планирует учредить премию за решение математических «задач тысячелетия»</h4>
+            <p>Премьер-министр Михаил Мишустин поручил представить предложения по учреждению в России единовременной премии за решение математических «задач тысячелетия».</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <p>05.02.2024</p>
+        <a href="https://mathcenter.kpfu.ru/tpost/5d6rxoivm1-prisuzhdena-premiya-kraforda-v-oblasti-m"><img src="~/img/новости матем 1.png" width="250" height="200" /></a>
+        <div>
+            <h4>Присуждена премия Крафорда в области математики и астрономии</h4>
+            <p>Премия Крафорда (Crafoord Prize) — одна из крупнейших научных премий Швеции, с 1982 года присуждаемая Шведской академией наук лауреатам в одной из четырех номинаций: математика и астрономия, науки о Земле, биологические науки и исследования по лечению полиартрита.</p>
+        </div>
+    </div>
+    
+    
+    
+    @foreach (var item in Model.AddNews)
+    {
+        @if (item.NameFile != null)
+        {
+            <div class="row">
+                <p>@Html.DisplayFor(modelItem => item.Created)</p>
+                <a href="@item.LinkImage"><img src="~/Images/@item.NameFile"/></a>
+                <div>
+                    <h4>@Html.DisplayFor(modelIem => item.Title)</h4>
+                    <p class="card-text">@Html.Raw(item.Description)</p>
+                    <div class="link">
+
+                        @if (item.NameDoc != null) {
+                            <a href="@item.LinkFile">@item.NameDoc</a>
+                        }
+                        
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-page="./Delete" asp-route-id="@item.Id" id="delete">Удалить</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<link rel="stylesheet" href="~/css/news.css">

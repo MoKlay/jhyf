@@ -1,0 +1,43 @@
+﻿@page
+@model jhyf.Pages.Links.IndexModel
+
+@{
+    ViewData["Title"] = "Ссылки";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Ссылки</h1>
+<div class="control">
+
+    @if(User.IsInRole("Admin"))
+    {
+        <a asp-page="Create">Добавить</a>
+    }
+    
+    <a asp-page="/Index">На главную</a>
+</div>
+<div class="con">
+    <a href="https://www.yaklass.ru/?h">Якласс</a>
+    
+    <a href="https://resh.edu.ru">РЭШ</a>
+    
+    
+    <a href="https://fioco.ru/obraztsi_i_opisaniya_vpr_2023">ФИОКО(ВПР)</a>
+    
+    
+    @foreach(var item in Model.Link)
+    {
+        <div class="subnavbar" id="link">
+            <a href="@item.Linki">@item.NameFromLink</a>
+            
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="subnavbar-item">
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a> 
+                        <a asp-page = "./Delete" asp-route-id = "@item.Id">Удалить</a>
+                    </div>
+                }
+        </div>
+    }
+</div>
+<link rel="stylesheet" href="~/css/link.css">

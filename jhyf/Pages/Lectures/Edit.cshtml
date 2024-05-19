@@ -1,0 +1,29 @@
+﻿@page
+@model jhyf.Pages.Lectures.EditModel
+
+@{
+    ViewData["Title"] = "Редактирование лекций";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <h1>Редактирование</h1>
+    <div asp-validation-summary="ModelOnly"></div>
+    <input type="hidden" asp-for="AddLectures.Id" />
+    <div>
+        <input asp-for="AddLectures.Name" placeholder="Тема"/>
+        <span asp-validation-for="AddLectures.Name"></span>
+    </div>
+    <div>
+        <input asp-for="AddLectures.LecturesLink" placeholder="Ссылка"/>
+        <span asp-validation-for="AddLectures.LecturesLink"></span>
+    </div>
+    <div>
+        <button type="submit">Сохранить</button>
+        <a asp-page="./Index">Отмена</a>
+    </div>
+</form>
+<link rel="stylesheet" href="~/css/register.css">
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

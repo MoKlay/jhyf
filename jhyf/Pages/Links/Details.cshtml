@@ -1,0 +1,39 @@
+﻿@page
+@model jhyf.Pages.Links.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <h4>Link</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Link.NameFromLink)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Link.NameFromLink)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Link.Linki)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Link.Linki)
+        </dd>
+    </dl>
+</div>
+@if (User.IsInRole("Admin"))
+{
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Link.Id">Редактировать</a> |
+    <a asp-page="./Index">Вернуться к списку</a>
+</div>
+}
+@if (User.IsInRole("User"))
+{
+    <a asp-page="./Index">Вернуться к списку</a>
+}

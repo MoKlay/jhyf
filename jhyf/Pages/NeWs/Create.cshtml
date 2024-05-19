@@ -1,0 +1,45 @@
+﻿@page
+@model jhyf.Pages.NeWs.CreateModel
+
+@{
+    ViewData["Title"] = "Создание новости";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<link href="~/lib/froala-editor/css/froala_editor.min.css" rel="stylesheet" />
+
+<form method="post" enctype="multipart/form-data" id="news">
+    <h1>Создать новую новость</h1>
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <input type="text" id="Title" asp-for="AddNews.Title" placeholder="Заголовок">
+        <input type="file" name="file" id="NameFile" asp-for="AddNews.NameFile">
+        <input asp-for="AddNews.LinkImage" placeholder="Ссылка на новость"/>
+        <span asp-validation-for="AddNews.LinkImage"></span>
+    </div>
+    <div>
+        <input asp-for="AddNews.NameDoc" placeholder="Название файла"/>
+        <span asp-validation-for="AddNews.NameDoc"></span>
+        <input asp-for="AddNews.LinkFile" placeholder="Ссылка файла"/>
+        <span asp-validation-for="AddNews.LinkFile"></span>
+    </div>
+    <div id="text">
+        <textarea id="Description" asp-for="AddNews.Description"></textarea>
+        <span asp-validation-for="AddNews.Description" class="text-danger"></span>
+    </div>
+    <div>
+        <button type="submit">Опубликовать</button>
+        <a asp-page="Index">Отмена</a>
+    </div>
+</form>
+
+<link rel="stylesheet" href="~/css/register.css">
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/lib/froala-editor/js/froala_editor.min.js"></script>
+<script>
+    var description = new FroalaEditor("#Description");
+    var shortDescription = new FroalaEditor("#shortDescription");
+</script>

@@ -1,0 +1,36 @@
+﻿@page
+@model jhyf.Pages.Homeworks.IndexModel
+
+@{
+    ViewData["Title"] = "Домашние задания";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<h1 class="display-6">Домашние задания</h1>
+<div class="control">
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-page="Create">Добавить задание</a>
+    }
+    <a asp-page="/Index">На главную</a>
+</div>
+<div class="con"> 
+
+    @foreach (var item in Model.AddHomework) {
+        <div class="subnavbar">
+            @item.Name
+            
+            <div class="subnavbar-item deck">
+                <p>@Html.DisplayFor(modelItem => item.Opisanie)</p>
+                <a href="@item.Zadanie">Открыть</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
+                }
+            </div>
+        </div>
+    }
+</div>
+<link rel="stylesheet" href="~/css/link.css">

@@ -1,0 +1,26 @@
+﻿@page
+@model jhyf.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Обновление пароля";
+}
+<form id="change-password-form" method="post">
+    <div asp-validation-summary="ModelOnly" role="alert"></div>
+    <div>
+        <input asp-for="Input.OldPassword" autocomplete="off" aria-required="true" placeholder="Введите старый пароль" />
+        <span asp-validation-for="Input.OldPassword"></span>
+    </div>
+    <div>
+        <input asp-for="Input.NewPassword" autocomplete="off" aria-required="true" placeholder="Введите новый пароль" />
+        <span asp-validation-for="Input.NewPassword"></span>
+    </div>
+    <div>
+        <input asp-for="Input.ConfirmPassword" autocomplete="off" aria-required="true" placeholder="Подтведите новый пароль" />
+        <span asp-validation-for="Input.ConfirmPassword"></span>
+    </div>
+    <button type="submit">Обновить пароль</button>
+</form>
+
+<link rel="stylesheet" href="~/css/register.css">
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,78 @@
+﻿@page
+@model jhyf.Pages.NeWs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>AddNews</h4>
+<hr />
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label for="Title" class="form-label" asp-for="AddNews.Title">Заголовок</label>
+        <input type="text" class="form-control" id="Title" asp-for="AddNews.Title">
+    </div>
+    <div class="input-group mb-3">
+        @* <label class="input-group-text" for="ImageNews">Выбрать файл</label> *@
+        <input type="file" class="form-control" id="ImageNews" asp-for="AddNews.ImageNews">
+    </div>
+    <div class="mb-3">
+        <label for="Description" class="form-label" asp-for="AddNews.Description">Текст публикации</label>
+        <textarea id="Description" asp-for="AddNews.Description"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-primary" /> |
+        <a asp-page="Index">Отмена</a>
+    </div>
+</form>
+
+@* <div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AddNews.Id" />
+            <div class="form-group">
+                <label asp-for="AddNews.Title" class="control-label"></label>
+                <input asp-for="AddNews.Title" class="form-control" />
+                <span asp-validation-for="AddNews.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddNews.ImageNews" class="control-label"></label>
+                <input asp-for="AddNews.ImageNews" class="form-control" />
+                <span asp-validation-for="AddNews.ImageNews" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddNews.Description" class="control-label"></label>
+                <input asp-for="AddNews.Description" class="form-control" />
+                <span asp-validation-for="AddNews.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddNews.Created" class="control-label"></label>
+                <input asp-for="AddNews.Created" class="form-control" />
+                <span asp-validation-for="AddNews.Created" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddNews.LastUpdated" class="control-label"></label>
+                <input asp-for="AddNews.LastUpdated" class="form-control" />
+                <span asp-validation-for="AddNews.LastUpdated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script src="~/lib/froala-editor/js/froala_editor.min.js"></script>
+<script>
+    var description = new FroalaEditor("#Description");
+    var shortDescription = new FroalaEditor("#shortDescription");
+</script>

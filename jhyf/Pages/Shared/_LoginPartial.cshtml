@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using jhyf.Data.Identity
+@inject SignInManager<ApplicationIdentityUser> SignInManager
+@inject UserManager<ApplicationIdentityUser> UserManager
+
+<div class="user-info">
+@if (SignInManager.IsSignedIn(User))
+{   
+    <div class="subnavbar profile">
+        <p>@User.Identity?.Name</p>
+        <div class="subnavbar-item">
+            <a asp-page="/Profile">Изменить пароль</a>
+            @if (User.IsInRole("User")) {
+                <a asp-page="/PersonalData">Удалить профиль</a>
+            }
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                <button  type="submit">Выход</button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <a href="@Url.Page("/Account/Login", new { area = "Identity" })">Вход</a>
+}
+</div>

@@ -1,0 +1,50 @@
+﻿@page
+@model jhyf.Pages.NeWs.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AddNews</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddNews.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddNews.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddNews.ImageNews)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddNews.ImageNews)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddNews.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddNews.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddNews.Created)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddNews.Created)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddNews.LastUpdated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddNews.LastUpdated)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AddNews.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

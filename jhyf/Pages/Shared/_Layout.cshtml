@@ -1,0 +1,57 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/body.css"/>
+    <link rel="stylesheet" href="~/css/header.css"/>
+</head>
+<body>
+    
+    <header >
+    <div class="conteiner">
+        <img src="~/img/newlogo.png" alt="">
+        <nav>
+            <a asp-page="/Index">Главная</a>
+            <div class="subnavbar">
+                Студентам
+                <div class="subnavbar-item">
+                    <a asp-page="/Homeworks/Index">Домашние задания</a>
+                    <a href="https://drive.google.com/file/d/16WyODj4KV2EG08-SqV2Knfb0NE-sZm-R/view?usp=sharing">РПД</a>
+                    <a asp-page="/Lectures/Index">Лекции</a>
+                    <div class="subnavbar">
+                        Учебники
+                        <div class="subnavbar-item">
+                            <a href="https://drive.google.com/file/d/1vD_g2gxlFJV9vqNx8Q03_REKFxkSf3EQ/view?usp=sharing">Алгебра</a>
+                            <a href="https://drive.google.com/file/d/1N6MB-dke0plH28rrgrvjn6UFi9ovs8pg/view?usp=sharing">Геометрия</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subnavbar" id="link">
+                <a asp-page="/Links/Index">Полезные ссылки</a>
+            </div>
+            
+            
+            <a asp-page="/NeWs/Index">Новости</a>
+        </nav>
+    </div>
+        <partial name="_LoginPartial" />
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <p>&copy; Преподаватель Пойдонова В.В.</p>
+        <p>ⓔ poidonova.v.v@gmail.com</p>
+        <p>✆ 8(3012)430390</p>
+        <a href="https://forms.gle/z3fyuYCzLKTYJKEm6">Обратная связь</a>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+
+
+<form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <h1>@ViewData["Title"]</h1>
+    <div asp-validation-summary="ModelOnly" role="alert"></div>
+    <div>
+        <input type="email" asp-for="Input.Email" autocomplete="off" aria-required="true" placeholder="Почта" />
+        <span asp-validation-for="Input.Email"></span>
+    </div>
+    <div>
+        <input asp-for="Input.Password" autocomplete="off" aria-required="true" placeholder="Пароль" />
+        <span asp-validation-for="Input.Password"></span>
+    </div>
+    <div>
+        <input asp-for="Input.ConfirmPassword" autocomplete="off" aria-required="true" placeholder="Подтвердить" />
+        <span asp-validation-for="Input.ConfirmPassword"></span>
+    </div>
+    <button id="registerSubmit" type="submit">Зарегистрироваться</button>
+    <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Есть аккаунт?</a>
+</form>
+
+<link rel="stylesheet" href="~/css/register.css">
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

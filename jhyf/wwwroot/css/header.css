@@ -1,0 +1,156 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: var(--back-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+main::-webkit-scrollbar{
+  width: 5px;
+}
+main::-webkit-scrollbar-thumb{
+  padding: 2000px 0;
+}
+main::-webkit-scrollbar-thumb:hover{
+  background-color: var(--button-color);
+  border-radius: 5px;
+}
+main{
+  overflow-y: scroll;
+}
+header{
+  z-index: 2;
+  font-size: 18px;
+  background: linear-gradient(90deg, var(--general-color), var(--additional-color));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:15px 100px 20px 100px;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 2px 8px;
+}
+header img {
+  width: 80px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 2px 4px 4px;
+}
+nav, .user-info, .subnavbar{
+  display: flex;
+  gap: 10px;
+}
+.user-info form{
+  display: flex;
+  justify-content: center;
+}
+nav>a, .user-info a, .subnavbar, .register, .user-info button, .subnavbar-item a{
+  display: flex;
+  justify-content: center;
+  border: 0;
+  font-size: 18px;
+  background-color: var(--button-color);
+  border-radius: 5px;
+  box-shadow: 2px 4px 4px black;
+  transition: background-color 0.5s, color 0.3s, text-shadow 0.2s;
+  padding: 5px 15px;
+  color: #f0f8ff;
+  text-decoration: none;
+  text-shadow: 2px 2px 3px black;
+}
+#link{
+  padding: 0;
+  overflow: hidden;
+  justify-content: center;
+}
+#link> a{
+  
+  box-shadow: none;
+  background-color: transparent;
+  padding: 5px 15px;
+}
+#link> .subnavbar-item{
+  margin: 30px 0 0 0;
+}
+.subnavbar>a{
+  color: #f0f8ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.register>.subnavbar-item{
+  right: 110px;
+  width: 400px;
+  height: 400px;
+}
+
+nav>a:hover, .user-info>a:hover, .subnavbar:hover,.subnavbar a:hover, .user-info button:hover, .subnavbar:hover> a{
+  background-color: #f0f8ff;
+  color: #1d1d1d;
+  text-shadow: none;
+}
+.user-info button:hover{
+  color: brown;
+}
+
+.profile{
+  text-align: center;
+}
+
+.subnavbar-item{
+  z-index: 5;
+  background: var(--back-color);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid transparent;
+  position: absolute;
+  transition: .3s linear;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.95); 
+  box-shadow: 2px 4px 6px;
+  border-radius: 5px;
+}
+
+.subnavbar:hover > .subnavbar-item{
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1); 
+}
+
+.conteiner{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.deck p {
+  text-align: center;
+  font-size: 20px;
+}
+
+
+footer{
+  z-index: 2;
+  display: flex;
+  padding: 10px 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  gap:20px;
+  background: linear-gradient(90deg,var(--additional-color), var(--general-color));
+  box-shadow: inset 0 2px 4px;
+}
+footer a, footer p {
+  color: #f0f8ff;
+  text-shadow: 2px 2px 3px #1d1d1d;
+  transition: all 0.3s;
+}
+footer a:hover{
+  color: #1c1c1c;
+  text-shadow: 0px 2px 2px white;
+}

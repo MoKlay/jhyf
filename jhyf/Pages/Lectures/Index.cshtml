@@ -1,0 +1,47 @@
+﻿@page
+@model jhyf.Pages.Lectures.IndexModel
+
+@{
+    ViewData["Title"] = "Лекции";
+    
+}
+
+<h1>Лекции</h1>
+<div class="control">
+
+    @if (User.IsInRole("Admin"))
+    {
+            <a asp-page="Create">Добавть лекцию</a>
+    }
+    <a asp-page="/Index">На главную</a>
+</div>
+<div class="con libr">
+    <a href="https://docs.google.com/presentation/d/1WYg8-OGd1U5D9ev_YwvVKMLSoxknGsbm/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Понятие первообразной</a>
+    <a href="https://docs.google.com/presentation/d/1Wgn6uxHqiW-qHTQYIQY1tm6PjiJOtxsG/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Определение производной</a>
+    <a href="https://docs.google.com/presentation/d/1xbnRHXXppLwiHZBzBmdkCX2bdL2XYbvN/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Правила дифференцирования</a>
+    <a href="https://docs.google.com/presentation/d/1-NrF6Lhh5eAIQkcngfowSkWP2MCUD4p4/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Производная сложной функции</a>
+    <a href="https://docs.google.com/presentation/d/1B6_5vdgSslQ1BT52dQAUSt9130NMnLk-/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Промежутки монотонности</a>
+    <a href="https://docs.google.com/presentation/d/12KuUV4Cj9bA5KeIcxc1F7CPm1DA_5zr1/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Уравнение касательной</a>
+    <a href="https://docs.google.com/presentation/d/1rWh5rcVaoQYLxN5KOKSQjkWQIxJALv9Q/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Методы решения тригонометрических уравнений</a>
+    <a href="https://docs.google.com/presentation/d/1UfIdfjvukE0FdX7qcvRgK336HblwxNAH/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Тригонометрические уравнения</a>
+    <a href="https://docs.google.com/presentation/d/1IxQ-u_7OYkJ90YMRICn282NgpYPYfOru/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Тригонометрические функции</a>
+    <a href="https://docs.google.com/presentation/d/1zWbYB4hjzjs6Y4Ncv3p4dSxXW6Goe7Hj/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Степень с рациональным показателем</a>
+    <a href="https://docs.google.com/presentation/d/10Pnn1nhZR8vGPxVGZxv8KCud4v7NtQjv/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Степенная функция</a>
+    <a href="https://docs.google.com/presentation/d/1WVZ5fIYu6d5dorZ2GQsItSC9BP0epLM3/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true">Показательная функция</a>
+    @foreach (var item in Model.AddLectures)
+    {
+        <div class="subnavbar" id="link">
+            <a href="@item.LecturesLink">@item.Name</a>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="subnavbar-item">
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
+                </div>
+            }
+        </div>
+    }
+</div>
+<link rel="stylesheet" href="~/css/link.css">
+
+

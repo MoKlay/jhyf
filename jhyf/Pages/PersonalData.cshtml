@@ -1,0 +1,15 @@
+﻿@page
+@model jhyf.Pages.PersonalDataModel
+@{
+    ViewData["Title"] = "Удаление аккаунта";
+}
+<div class="form">
+    <p>Ваша учетная запись содержит персональные данные, которые вы нам предоставили. <br>На этой странице вы можете удалить эти данные. <br>Удаление этих данных приведет к необратимому удалению вашей учетной записи, и восстановить ее будет невозможно.</p>
+    <a id="delete" asp-page="DeletePersonalData">Удалить</a>
+    <a asp-page="Index">Назад</a>
+</div>
+
+<link rel="stylesheet" href="~/css/register.css">
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

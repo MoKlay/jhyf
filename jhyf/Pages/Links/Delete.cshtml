@@ -1,0 +1,17 @@
+﻿@page
+@model jhyf.Pages.Links.DeleteModel
+
+@{
+    ViewData["Title"] = "Удаление";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <h1>Удаление</h1>
+    <h3>Вы уверены, что хотите удалить эту запись?</h3>
+    <input type="hidden" asp-for="Link.Id" />
+    <button type="submit" id="Delete" >Удалить</button>
+    <a asp-page="./Index">Вернуться к списку</a>
+</form>
+
+<link rel="stylesheet" href="~/css/register.css">

@@ -1,0 +1,18 @@
+﻿@page
+@model jhyf.Pages.NeWs.DeleteModel
+
+@{
+    ViewData["Title"] = "Удаление новости";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <h1>Удаление</h1>
+    
+    <h3>Вы уверены, что хотите удалить эту запись?</h3>
+    <input type="hidden" asp-for="AddNews.Id" />
+    <button type="submit" id="delete">Удалить</button>
+    <a asp-page="./Index">Отмена</a>
+</form>
+
+    <link rel="stylesheet" href="~/css/register.css">

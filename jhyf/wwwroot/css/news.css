@@ -1,0 +1,84 @@
+main{
+  padding: 100px;
+}
+.con{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 5px;
+  justify-self: center;
+  width: 300px;
+  padding: 20px;
+  border: 2px solid var(--general-color);
+  border-radius: 15px;
+  box-shadow: 2px 4px 4px black;
+  font-size: 16px;
+}
+.row img{
+  width: 250px;
+  height: 200px;
+  box-shadow: 0 2px 4px;
+}
+.row h4{
+  padding: 10px 0;
+}
+#add{
+  position: absolute;
+  right: 120px;
+  bottom: 120px;
+  text-decoration: none;
+  background-color: var(--general-color);
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: aliceblue;
+  font-family: "Roboto";
+  font-weight: 300;
+  box-shadow: 2px 4px 4px black;
+  transition: all 0.3s;
+  gap: 10px;
+}
+#add:hover{
+  background-color: aliceblue;
+  color: #1c1c1c;
+  box-shadow: 4px 6px 4px black;
+}
+
+.row>div>a,
+#delete{
+
+  text-decoration: none;
+  color: #f0f8ff;
+  text-shadow: 0 2px 2px black;
+  font-size: 18px;
+  padding: 5px 15px;
+  border: 0;
+  background-color: var(--general-color)90;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px black;
+  width: 240px;
+  transition: background-color 0.5s, color 0.5s, text-shadow 0.5s;
+}
+.row>div>a:hover{
+  color: #000;
+  background-color: #f0f8ff;
+  text-shadow: none;
+}
+#delete:hover{
+  color: brown;
+  background-color: #f0f8ff;
+  text-shadow: none;
+}
+.link{
+  padding: 20px;
+
+}

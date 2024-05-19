@@ -1,0 +1,33 @@
+﻿@page
+@model jhyf.Pages.Homeworks.EditModel
+
+@{
+    ViewData["Title"] = "Редактирование домашнего задания";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <h1>Редактирование домашнего задания</h1>
+    <div asp-validation-summary="ModelOnly"></div>
+    <input type="hidden" asp-for="AddHomework.Id" />
+    <div>
+        <input asp-for="AddHomework.Name" placeholder="Тема"/>
+        <span asp-validation-for="AddHomework.Name"></span>
+    </div>
+    <div>
+        <input asp-for="AddHomework.Opisanie" placeholder="Задание"/>
+        <span asp-validation-for="AddHomework.Opisanie"></span>
+    </div>
+    <div>
+        <input asp-for="AddHomework.Zadanie" placeholder="Ссылка"/>
+        <span asp-validation-for="AddHomework.Zadanie"></span>
+    </div>
+    <div>
+        <button type="submit">Сохранить</button>
+        <a asp-page="./Index">Отмена</a>
+    </div>
+</form>
+<link rel="stylesheet" href="~/css/register.css">
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
