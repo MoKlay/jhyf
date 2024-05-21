@@ -2,12 +2,13 @@
 	
   main{
     z-index: 1;
-    padding: 100px;
+    padding: 100px 150px;
   }
   .face-box{
+    height: 60vh;
     font-family: "Roboto";
     user-select: none;
-    background:linear-gradient(100deg, white 45% ,var(--general-color) 45%);
+    background:linear-gradient(100deg, white 50% ,var(--general-color) 45%);
     display: grid;
     box-shadow: 2px 4px 4px;
     border-radius: 15px;
@@ -20,18 +21,18 @@
   }
   .face-box h6{
     
-    font-size: calc(var(--index)*0.12);
+    font-size: calc(var(--index)*0.2);
   }
   .face-box h4 {
-    font-size: calc(var(--index)*0.35);
+    font-size: calc(var(--index)*0.3);
   }
   
   .face-box> img {
     align-self: center;
-    justify-self: end;
+    justify-self: center;
     grid-column: 2;
     grid-row: 1/10;
-    width: calc((1vh + 1vw) *30);
+    width: calc((1vh + 1vw) *18);
     border-radius: 10px;
     box-shadow: 2px 4px 4px ;
   }
@@ -40,9 +41,8 @@
     font-weight: 400;
     border-radius: 10px;
     width: 30vw;
-    font-size: calc(var(--index)*0.15);
-    margin-top: 10px;
-    margin-left: 20px;
+    font-size: calc(var(--index)*0.18);
+    margin-left: 100px;
   }
   .con {
     align-self: start;
@@ -52,13 +52,11 @@
   .blocks{
     align-items: start;
     position: absolute;
-    margin-top: 10px;
     padding: 10px;
     display: grid;
     width: 100%;
-    grid-template-rows: 100px 100px 100px;
-    grid-template-columns: 100px;
-    gap: 1px;
+    grid-template-rows: 100px 140px 150px;
+    grid-template-columns: 150px;
     color: azure;
   }
   .blocks div{
@@ -96,11 +94,11 @@
   .blocks h5{
     transition: font-size 0.3s;
     padding: 5px;
-    font-size: calc(var(--index)*0.1);
+    font-size: calc(var(--index)*0.14);
   }
   .blocks p {
     transition: font-size 0.3s;
-    font-size: calc(var(--index)*0.1);
+    font-size: calc(var(--index)*0.14);
   }
   .blocks p::before{
     content: "•";
