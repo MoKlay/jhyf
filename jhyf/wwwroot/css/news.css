@@ -82,3 +82,21 @@ main{
   padding: 20px;
 
 }
+.link a{
+  text-decoration: none;
+  color: #f0f8ff;
+  text-shadow: 0 2px 2px black;
+  font-size: 18px;
+  padding: 5px 15px;
+  border: 0;
+  background-color: var(--general-color)90;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px black;
+  width: 240px;
+  transition: background-color 0.5s, color 0.5s, text-shadow 0.5s;
+}
+.link a:hover{
+  background-color: #f0f8ff;
+  color: var(--general-color);
+  text-shadow: none;
+}
